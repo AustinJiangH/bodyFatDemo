@@ -1,0 +1,124 @@
+<html>
+
+<head>
+
+    <title>Body Fat Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper teal lighten-2">
+            <a href="#" class="brand-logo center">Body Fat Calculator</a>
+            <!-- <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="sass.html">Sass</a></li>
+                <li><a href="badges.html">Components</a></li>
+                <li><a href="collapsible.html">JavaScript</a></li>
+            </ul> -->
+        </div>
+    </nav>
+    <div class="container" id="calculator">
+        <div class="row">
+
+            <!-- left -->
+            <div class="col s12 m6 l6">
+                <div class="row">
+
+                    
+                    <h4>Gender</h4>
+                    <div class="input-field col s12">
+                        
+                        <p>
+                            <label>
+                                <input class="with-gap" name="Gender" type="radio" checked v-model="gender" value="m"/>
+                                <span>Male</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input class="with-gap" name="Gender" type="radio"  v-model="gender" value="f"/>
+                                <span>Female</span>
+                            </label>
+                        </p>
+                    </div>
+
+                    <h4>Detailed Information </h4>
+                    <div class="input-field col s12">
+                        <textarea id="Density" class="materialize-textarea" v-model="density"></textarea>
+                        <label for="Density">Density</label>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <textarea id="Age" class="materialize-textarea" v-model="age"></textarea>
+                        <label for="Age">Age</label>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <textarea id="Weight" class="materialize-textarea" v-model="weight"></textarea>
+                        <label for="Weight">Weight</label>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <textarea id="Chest" class="materialize-textarea" v-model="chest"></textarea>
+                        <label for="Chest">Chest</label>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <textarea id="Ankle" class="materialize-textarea" v-model="ankle"></textarea>
+                        <label for="Ankle">Ankle</label>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <textarea id="Biceps" class="materialize-textarea" v-model="biceps"></textarea>
+                        <label for="Biceps">Biceps</label>
+                    </div>
+
+                    <div class="col s12">
+                        <button class="btn waves-effect waves-light" type="submit" name="action"
+                            v-on:click="calculate">Calculate
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- right -->
+            <div class="col s12 m6 l6">
+                <div class="row">
+                    <div class="col s12 m12">
+                        <div class="card">
+                            <div class="card-image">
+                                <img v-bind:src="picPath">
+
+                                <!-- <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a> -->
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title">Body Fat</span>
+                                <p>
+                                    Your body fat is calculated to be {{ bodyfat }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="calculator.js"></script>
+</body>
+
+</html>
