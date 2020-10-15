@@ -4,6 +4,9 @@ var app = new Vue({
         gender: "",
         measure: "m",
 
+        lengthMeasure: "cm",
+        weightMeasure: "kg",
+
         // basic
         age: "",
         weight: "",
@@ -25,9 +28,9 @@ var app = new Vue({
         forearm: "",
 
         bodyfat: "",
-        bodyfatString: "",
+        bodyfatString: "0%",
 
-        picText: "Fill the Form and Calculate!",
+        picText: "Fill in the Form and Calculate!",
         picPath: "img/m2.jpg",
     },
     methods: {
@@ -112,6 +115,14 @@ var app = new Vue({
                         break;
                 }
                 this.changePic();
+                document.querySelector("#firework").classList.add('pyro');
+                setTimeout(function(){
+                    document.querySelector("#firework").classList.remove('pyro');
+                }, 5 * 1000)
+                if(this.bodyfat < 0 || this.bodyfat > 50){
+                    M.toast({html: "<span>Unreliable estimation! <br>Please verify your input!</span>"})
+                }
+                
             }else{
                 M.toast({html: 'Please fill in all previous blanks with a valid number!'})
             }
@@ -159,6 +170,16 @@ var app = new Vue({
             this.picPath = "img/" + this.gender + String(picNum) + ".jpg";
             this.bodyfatString = String(this.bodyfat.toFixed(2)) + "%"
             console.log(this.picPath)
+        },
+        
+        changeMeasure: function(){
+            if(this.measure == "m"){
+                this.lengthMeasure = "cm";
+                this.weightMeasure = "kg";
+            }else if(this.measure == "i"){
+                this.lengthMeasure = "in";
+                this.weightMeasure = "lb";
+            }
         }
     }
 

@@ -8,7 +8,7 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+    <link rel="stylesheet" href="firework.css">
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -29,26 +29,39 @@
         div.collapsible-body {
             padding-top: 0.3rem;
             padding-bottom: 0.6rem;
+            border: none
+        }
+
+        div.collapsible-header {
+            border: none;
+            background-image: linear-gradient(-225deg, #a7ffeb   0%, #FFFEFF 100%);
         }
 
         div.col.s12.m6.l6 {
             padding: 0.5rem
         }
 
-        div.collapsible-header {
-            color: #00695c  ;
+        h5{
+            margin-top: .3rem;
+            margin-bottom: .3rem;
         }
+        /* div.collapsible-header {
+            color: #00695c  ;
+        } */
 
+        div.collapsible-body{
+            background-color: #fff;
+        }
 
         
     </style>
 
 </head>
 
-<body>
-    <nav>
-        <div class="nav-wrapper teal lighten-1">
-            <a href="#" class="brand-logo center">Body Fat Calculator</a>
+<body style="background-image: linear-gradient(-225deg, #FFFEFF  0%, #a7ffeb 100%);">
+    <nav style="background-image: linear-gradient(120deg, #a7ffeb 0%, #FFFEFF 100%);">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo center black-text">Body Fat Calculator</a>
             <!-- <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="sass.html">Sass</a></li>
                 <li><a href="badges.html">Components</a></li>
@@ -63,22 +76,37 @@
             <div class="col s12 m6 l6">
 
 
-                <!-- Essential  card -->
+                
+                <!-- intro card  -->
+                <div class="card">
+                    <div class="collapsible-header">
+                        <h5>Introduction</h5>
+                    </div>
+                    <div class="card-content">
+                        <p>
+                            This body fat calculator can estimate your total body fat based on specific measurements.
+                        </p>
+                        <p>
+                            You are free to choose a measure system you are familiar with.
+                            Remeber to fill in all previous blanks before hitting the "Calculate" button.
+                        </p>
+                        <p>
+                            The estimation gets more precise when more information is provided.
+                        </p>
+                    </div>
 
+                </div>
 
-                <!-- commmon card -->
-
-
-
+                <!-- expandable  -->
                 <ul class="collapsible expandable">
                     <li class="active">
-                        <div class="collapsible-header">
+                        <div class="collapsible-header" >
                             <h5>Basic Information <i class="material-icons">arrow_drop_down_circle</i></h5>
                         </div>
                         <div class="collapsible-body">
                             <div class="row">
 
-                                <h5>Gender</h5>
+                                <h6>Gender</h6>
                                 <div class="input-field col s6 m6">
 
                                     <p>
@@ -102,13 +130,12 @@
                                     </p>
                                 </div>
 
-                                <h5>Measure</h5>
-                                <div class="input-field col s6 m6">
+                                <h6>Measure</h6>
+                                <div class="input-field col s6 m6" >
 
                                     <p>
-                                        <label>
-                                            <input class="with-gap" name="Measure" type="radio" checked
-                                                v-model="measure" value="m" />
+                                        <label >
+                                            <input class="with-gap" name="Measure" type="radio" checked v-model="measure" value="m" @change="changeMeasure"/>
                                             <span>Metric (kg, cm)</span>
                                         </label>
                                     </p>
@@ -118,10 +145,9 @@
                                 <div class="input-field col s6 m6">
 
                                     <p>
-                                        <label>
-                                            <input class="with-gap" name="Measure" type="radio" v-model="measure"
-                                                value="i" />
-                                            <span>Imperial (lbs., in.)</span>
+                                        <label >
+                                            <input class="with-gap" name="Measure" type="radio" v-model="measure"value="i" @change="changeMeasure"/>
+                                            <span>Imperial (lb, in)</span>
                                         </label>
                                     </p>
                                 </div>
@@ -145,12 +171,12 @@
 
                                 <div class="input-field col s12 m6">
                                     <textarea id="Weight" class="materialize-textarea" v-model="weight"></textarea>
-                                    <label for="Weight">Weight</label>
+                                    <label for="Weight">Weight ({{weightMeasure}})</label>
                                 </div>
 
                                 <div class="input-field col s12 m6">
                                     <textarea id="Height" class="materialize-textarea" v-model="height"></textarea>
-                                    <label for="Height">Height</label>
+                                    <label for="Height">Height ({{lengthMeasure}})</label>
                                 </div>
 
                                 <div class="col s12 m6">
@@ -174,17 +200,17 @@
                                 <p>More information, more precision!</p>
                                 <div class="input-field col s12 m6">
                                     <textarea id="Chest" class="materialize-textarea" v-model="chest"></textarea>
-                                    <label for="Chest">Chest Circumference</label>
+                                    <label for="Chest">Chest Circumference ({{lengthMeasure}})</label>
                                 </div>
 
                                 <div class="input-field col s12 m6">
                                     <textarea id="Wrist" class="materialize-textarea" v-model="wrist"></textarea>
-                                    <label for="Wrist">Wrist Circumference</label>
+                                    <label for="Wrist">Wrist Circumference ({{lengthMeasure}})</label>
                                 </div>
 
                                 <div class="input-field col s12 m6">
                                     <textarea id="Hip" class="materialize-textarea" v-model="hip"></textarea>
-                                    <label for="Hip">Hip Circumference</label>
+                                    <label for="Hip">Hip Circumference ({{lengthMeasure}})</label>
                                 </div>
 
                                 <div class="col s12 m6">
@@ -212,42 +238,42 @@
                                 <div class="input-field col s12 m6">
                                     <textarea id="Adiposity" class="materialize-textarea"
                                         v-model="adiposity"></textarea>
-                                    <label for="Adiposity">Adiposity </label>
+                                    <label for="Adiposity">Adiposity (bmi)</label>
                                 </div>
 
                                 <div class="input-field col s12 m6">
                                     <textarea id="Neck" class="materialize-textarea" v-model="neck"></textarea>
-                                    <label for="Neck">Neck Circumference</label>
+                                    <label for="Neck">Neck Circumference ({{lengthMeasure}})</label>
                                 </div>
 
                                 <div class="input-field col s12 m6">
                                     <textarea id="Abdomen" class="materialize-textarea" v-model="abdomen"></textarea>
-                                    <label for="Abdomen">Abdomen Circumference</label>
+                                    <label for="Abdomen">Abdomen Circumference ({{lengthMeasure}})</label>
                                 </div>
 
                                 <div class="input-field col s12 m6">
                                     <textarea id="Thigh" class="materialize-textarea" v-model="thigh"></textarea>
-                                    <label for="Thigh">Thigh Circumference</label>
+                                    <label for="Thigh">Thigh Circumference ({{lengthMeasure}})</label>
                                 </div>
 
                                 <div class="input-field col s12 m6">
                                     <textarea id="Knee" class="materialize-textarea" v-model="knee"></textarea>
-                                    <label for="Knee">Knee Circumference</label>
+                                    <label for="Knee">Knee Circumference ({{lengthMeasure}})</label>
                                 </div>
 
                                 <div class="input-field col s12 m6">
                                     <textarea id="Ankle" class="materialize-textarea" v-model="ankle"></textarea>
-                                    <label for="Ankle">Ankle Circumference</label>
+                                    <label for="Ankle">Ankle Circumference ({{lengthMeasure}})</label>
                                 </div>
 
                                 <div class="input-field col s12 m6">
                                     <textarea id="Biceps" class="materialize-textarea" v-model="biceps"></textarea>
-                                    <label for="Biceps">Biceps Circumference</label>
+                                    <label for="Biceps">Biceps Circumference ({{lengthMeasure}})</label>
                                 </div>
 
                                 <div class="input-field col s12 m6">
                                     <textarea id="Forearm" class="materialize-textarea" v-model="forearm"></textarea>
-                                    <label for="Forearm">Forearm Circumference</label>
+                                    <label for="Forearm">Forearm Circumference ({{lengthMeasure}})</label>
                                 </div>
 
                                 <div class="col s12 m6">
@@ -271,17 +297,18 @@
                 <div class="row">
                     <div class="col s12 m12">
                         <div class="card">
-                            <div class="card-image">
+                            <div class="card-image" id="firework">
                                 <img v-bind:src="picPath">
-
+                                <div class="before"></div>
+                                <div class="after"></div>
                                 <!-- <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a> -->
                             </div>
-                            <div class="card-content">
+                            <div class="card-content" style="text-align: center;">
                                 <span class="card-title" style="font-size: 2.5rem;">{{ picText }}</span>
                                 <p>
-                                    Your body fat is estimated to be 
+                                    Your body fat percentage is estimated to be 
                                 </p>
-                                <p style="font-size: 4rem;">
+                                <p style="font-size: 4rem">
                                     {{ bodyfatString }}
                                 </p>
                             </div>
