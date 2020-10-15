@@ -1,0 +1,48 @@
+,vairable,coefficients,
+1,(Intercept),-517.6345427,-517.6345427
+2,age,-0.182789105, + -0.182789105182742 * this.age
+3,weight,-1.898676748, + -1.89867674831734 * this.weight
+4,height,4.52050229, + 4.52050229049177 * this.height
+5,adiposity,-12.32647183, + -12.3264718306416 * this.adiposity
+6,neck,5.783997594, + 5.78399759359791 * this.neck
+7,chest,18.07347349, + 18.0734734906965 * this.chest
+8,abdomen,-1.122367485, + -1.12236748532221 * this.abdomen
+9,hip,16.06704175, + 16.0670417539698 * this.hip
+10,thigh,5.283013149, + 5.28301314944288 * this.thigh
+11,knee,-20.77041394, + -20.770413943282 * this.knee
+12,ankle,-95.57289143, + -95.5728914279405 * this.ankle
+13,biceps,4.760011947, + 4.76001194682994 * this.biceps
+14,forearm,-1.559030884, + -1.55903088381135 * this.forearm
+15,wrist,-1.52337488, + -1.5233748797113 * this.wrist
+16,age * this.ankle,-0.044104096, + -0.0441040957475888 * this.age * this.ankle
+17,age * this.wrist,0.068161833, + 0.0681618331256203 * this.age * this.wrist
+18,weight * this.height,0.044997557, + 0.0449975566868278 * this.weight * this.height
+19,weight * this.chest,0.096093406, + 0.0960934062846427 * this.weight * this.chest
+20,weight * this.ankle,-0.633201003, + -0.633201002923837 * this.weight * this.ankle
+21,height * this.chest,-0.109550739, + -0.109550739034761 * this.height * this.chest
+22,height * this.hip,-0.072099446, + -0.0720994464973145 * this.height * this.hip
+23,height * this.ankle,0.337440472, + 0.337440472213329 * this.height * this.ankle
+24,height * this.biceps,-0.080502719, + -0.0805027185270307 * this.height * this.biceps
+25,height * this.forearm,0.128980836, + 0.128980835824561 * this.height * this.forearm
+26,adiposity * this.neck,0.348629073, + 0.348629072988867 * this.adiposity * this.neck
+27,adiposity * this.chest,-0.228298697, + -0.228298697411573 * this.adiposity * this.chest
+28,adiposity * this.knee,-0.605071572, + -0.605071571614284 * this.adiposity * this.knee
+29,adiposity * this.ankle,1.680495906, + 1.68049590579812 * this.adiposity * this.ankle
+30,adiposity * this.biceps,-0.320250853, + -0.320250852913665 * this.adiposity * this.biceps
+31,adiposity * this.forearm,0.464170699, + 0.464170698711911 * this.adiposity * this.forearm
+32,neck * this.hip,-0.150903909, + -0.150903909082736 * this.neck * this.hip
+33,chest * this.abdomen,-0.038432691, + -0.0384326905147307 * this.chest * this.abdomen
+34,chest * this.knee,0.168641089, + 0.168641088530069 * this.chest * this.knee
+35,chest * this.forearm,-0.1255227, + -0.125522699914563 * this.chest * this.forearm
+36,abdomen * this.thigh,0.043859213, + 0.0438592132913449 * this.abdomen * this.thigh
+37,abdomen * this.wrist,0.174002058, + 0.17400205801669 * this.abdomen * this.wrist
+38,hip * this.thigh,-0.065891999, + -0.0658919993308778 * this.hip * this.thigh
+39,hip * this.knee,0.097162608, + 0.0971626081740445 * this.hip * this.knee
+40,hip * this.biceps,0.227137752, + 0.227137751503346 * this.hip * this.biceps
+41,hip * this.wrist,-0.261930888, + -0.261930887996169 * this.hip * this.wrist
+42,thigh * this.biceps,-0.080166265, + -0.0801662650430524 * this.thigh * this.biceps
+43,knee * this.ankle,0.399563855, + 0.399563854618406 * this.knee * this.ankle
+44,ankle * this.wrist,1.68222262, + 1.68222261962102 * this.ankle * this.wrist
+45,forearm * this.wrist,-1.112818955, + -1.11281895525546 * this.forearm * this.wrist
+,,,
+,-517.634542700836 + -0.182789105182742 * this.age + -1.89867674831734 * this.weight + 4.52050229049177 * this.height + -12.3264718306416 * this.adiposity + 5.78399759359791 * this.neck + 18.0734734906965 * this.chest + -1.12236748532221 * this.abdomen + 16.0670417539698 * this.hip + 5.28301314944288 * this.thigh + -20.770413943282 * this.knee + -95.5728914279405 * this.ankle + 4.76001194682994 * this.biceps + -1.55903088381135 * this.forearm + -1.5233748797113 * this.wrist + -0.0441040957475888 * this.age * this.ankle + 0.0681618331256203 * this.age * this.wrist + 0.0449975566868278 * this.weight * this.height + 0.0960934062846427 * this.weight * this.chest + -0.633201002923837 * this.weight * this.ankle + -0.109550739034761 * this.height * this.chest + -0.0720994464973145 * this.height * this.hip + 0.337440472213329 * this.height * this.ankle + -0.0805027185270307 * this.height * this.biceps + 0.128980835824561 * this.height * this.forearm + 0.348629072988867 * this.adiposity * this.neck + -0.228298697411573 * this.adiposity * this.chest + -0.605071571614284 * this.adiposity * this.knee + 1.68049590579812 * this.adiposity * this.ankle + -0.320250852913665 * this.adiposity * this.biceps + 0.464170698711911 * this.adiposity * this.forearm + -0.150903909082736 * this.neck * this.hip + -0.0384326905147307 * this.chest * this.abdomen + 0.168641088530069 * this.chest * this.knee + -0.125522699914563 * this.chest * this.forearm + 0.0438592132913449 * this.abdomen * this.thigh + 0.17400205801669 * this.abdomen * this.wrist + -0.0658919993308778 * this.hip * this.thigh + 0.0971626081740445 * this.hip * this.knee + 0.227137751503346 * this.hip * this.biceps + -0.261930887996169 * this.hip * this.wrist + -0.0801662650430524 * this.thigh * this.biceps + 0.399563854618406 * this.knee * this.ankle + 1.68222261962102 * this.ankle * this.wrist + -1.11281895525546 * this.forearm * this.wrist,,

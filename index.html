@@ -16,11 +16,38 @@
     <!-- development version, includes helpful console warnings -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
+    <style>
+        div.input-field {
+            margin-top: .3rem !important;
+            margin-bottom: .3rem !important;
+        }
+
+        div.row {
+            margin-bottom: 0;
+        }
+
+        div.collapsible-body {
+            padding-top: 0.3rem;
+            padding-bottom: 0.6rem;
+        }
+
+        div.col.s12.m6.l6 {
+            padding: 0.5rem
+        }
+
+        div.collapsible-header {
+            color: #00695c  ;
+        }
+
+
+        
+    </style>
+
 </head>
 
 <body>
     <nav>
-        <div class="nav-wrapper teal lighten-2">
+        <div class="nav-wrapper teal lighten-1">
             <a href="#" class="brand-logo center">Body Fat Calculator</a>
             <!-- <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="sass.html">Sass</a></li>
@@ -34,65 +61,209 @@
 
             <!-- left -->
             <div class="col s12 m6 l6">
-                <div class="row">
 
-                    
-                    <h4>Gender</h4>
-                    <div class="input-field col s12">
-                        
-                        <p>
-                            <label>
-                                <input class="with-gap" name="Gender" type="radio" checked v-model="gender" value="m"/>
-                                <span>Male</span>
-                            </label>
-                        </p>
-                        <p>
-                            <label>
-                                <input class="with-gap" name="Gender" type="radio"  v-model="gender" value="f"/>
-                                <span>Female</span>
-                            </label>
-                        </p>
-                    </div>
 
-                    <h4>Detailed Information </h4>
-                    <div class="input-field col s12">
-                        <textarea id="Density" class="materialize-textarea" v-model="density"></textarea>
-                        <label for="Density">Density</label>
-                    </div>
+                <!-- Essential  card -->
 
-                    <div class="input-field col s12">
-                        <textarea id="Age" class="materialize-textarea" v-model="age"></textarea>
-                        <label for="Age">Age</label>
-                    </div>
 
-                    <div class="input-field col s12">
-                        <textarea id="Weight" class="materialize-textarea" v-model="weight"></textarea>
-                        <label for="Weight">Weight</label>
-                    </div>
+                <!-- commmon card -->
 
-                    <div class="input-field col s12">
-                        <textarea id="Chest" class="materialize-textarea" v-model="chest"></textarea>
-                        <label for="Chest">Chest</label>
-                    </div>
 
-                    <div class="input-field col s12">
-                        <textarea id="Ankle" class="materialize-textarea" v-model="ankle"></textarea>
-                        <label for="Ankle">Ankle</label>
-                    </div>
 
-                    <div class="input-field col s12">
-                        <textarea id="Biceps" class="materialize-textarea" v-model="biceps"></textarea>
-                        <label for="Biceps">Biceps</label>
-                    </div>
+                <ul class="collapsible expandable">
+                    <li class="active">
+                        <div class="collapsible-header">
+                            <h5>Basic Information <i class="material-icons">arrow_drop_down_circle</i></h5>
+                        </div>
+                        <div class="collapsible-body">
+                            <div class="row">
 
-                    <div class="col s12">
-                        <button class="btn waves-effect waves-light" type="submit" name="action"
-                            v-on:click="calculate">Calculate
-                            <i class="material-icons right">send</i>
-                        </button>
-                    </div>
+                                <h5>Gender</h5>
+                                <div class="input-field col s6 m6">
 
-                </div>
+                                    <p>
+                                        <label>
+                                            <input class="with-gap" name="Gender" type="radio" checked v-model="gender"
+                                                value="m" />
+                                            <span>Male</span>
+                                        </label>
+                                    </p>
+
+                                </div>
+
+                                <div class="input-field col s6 m6">
+
+                                    <p>
+                                        <label>
+                                            <input class="with-gap" name="Gender" type="radio" v-model="gender"
+                                                value="f" />
+                                            <span>Female</span>
+                                        </label>
+                                    </p>
+                                </div>
+
+                                <h5>Measure</h5>
+                                <div class="input-field col s6 m6">
+
+                                    <p>
+                                        <label>
+                                            <input class="with-gap" name="Measure" type="radio" checked
+                                                v-model="measure" value="m" />
+                                            <span>Metric (kg, cm)</span>
+                                        </label>
+                                    </p>
+
+                                </div>
+
+                                <div class="input-field col s6 m6">
+
+                                    <p>
+                                        <label>
+                                            <input class="with-gap" name="Measure" type="radio" v-model="measure"
+                                                value="i" />
+                                            <span>Imperial (lbs., in.)</span>
+                                        </label>
+                                    </p>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="active">
+                        <div class="collapsible-header">
+                            <h5>Essential Information <i class="material-icons">arrow_drop_down_circle</i></h5>
+                        </div>
+                        <div class="collapsible-body">
+                            <div class="row">
+                                <p>Essential to calculate your body fat percentage.</p>
+                                <div class="input-field col s12 m6">
+                                    <textarea id="Age" class="materialize-textarea" v-model="age"></textarea>
+                                    <label for="Age">Age</label>
+                                </div>
+
+                                <div class="input-field col s12 m6">
+                                    <textarea id="Weight" class="materialize-textarea" v-model="weight"></textarea>
+                                    <label for="Weight">Weight</label>
+                                </div>
+
+                                <div class="input-field col s12 m6">
+                                    <textarea id="Height" class="materialize-textarea" v-model="height"></textarea>
+                                    <label for="Height">Height</label>
+                                </div>
+
+                                <div class="col s12 m6">
+                                    <button class="btn waves-effect waves-light" type="submit" name="action"
+                                        v-on:click="calculate(1)">Calculate
+                                        <i class="material-icons right">send</i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="active">
+                        <div class="collapsible-header">
+                            <h5>More Information <i class="material-icons">arrow_drop_down_circle</i></h5>
+                        </div>
+                        <div class="collapsible-body">
+                            <div class="row">
+
+
+                                <p>More information, more precision!</p>
+                                <div class="input-field col s12 m6">
+                                    <textarea id="Chest" class="materialize-textarea" v-model="chest"></textarea>
+                                    <label for="Chest">Chest Circumference</label>
+                                </div>
+
+                                <div class="input-field col s12 m6">
+                                    <textarea id="Wrist" class="materialize-textarea" v-model="wrist"></textarea>
+                                    <label for="Wrist">Wrist Circumference</label>
+                                </div>
+
+                                <div class="input-field col s12 m6">
+                                    <textarea id="Hip" class="materialize-textarea" v-model="hip"></textarea>
+                                    <label for="Hip">Hip Circumference</label>
+                                </div>
+
+                                <div class="col s12 m6">
+                                    <button class="btn waves-effect waves-light" type="submit" name="action"
+                                        v-on:click="calculate(2)">Calculate
+                                        <i class="material-icons right">send</i>
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="collapsible-header">
+                            <h5>Advanced <i class="material-icons">arrow_drop_down_circle</i></h5>
+                        </div>
+                        <div class="collapsible-body">
+                            <div class="row">
+
+
+                                <p>You can provide more information to get a even more precise calculation.</p>
+
+
+                                <div class="input-field col s12 m6">
+                                    <textarea id="Adiposity" class="materialize-textarea"
+                                        v-model="adiposity"></textarea>
+                                    <label for="Adiposity">Adiposity </label>
+                                </div>
+
+                                <div class="input-field col s12 m6">
+                                    <textarea id="Neck" class="materialize-textarea" v-model="neck"></textarea>
+                                    <label for="Neck">Neck Circumference</label>
+                                </div>
+
+                                <div class="input-field col s12 m6">
+                                    <textarea id="Abdomen" class="materialize-textarea" v-model="abdomen"></textarea>
+                                    <label for="Abdomen">Abdomen Circumference</label>
+                                </div>
+
+                                <div class="input-field col s12 m6">
+                                    <textarea id="Thigh" class="materialize-textarea" v-model="thigh"></textarea>
+                                    <label for="Thigh">Thigh Circumference</label>
+                                </div>
+
+                                <div class="input-field col s12 m6">
+                                    <textarea id="Knee" class="materialize-textarea" v-model="knee"></textarea>
+                                    <label for="Knee">Knee Circumference</label>
+                                </div>
+
+                                <div class="input-field col s12 m6">
+                                    <textarea id="Ankle" class="materialize-textarea" v-model="ankle"></textarea>
+                                    <label for="Ankle">Ankle Circumference</label>
+                                </div>
+
+                                <div class="input-field col s12 m6">
+                                    <textarea id="Biceps" class="materialize-textarea" v-model="biceps"></textarea>
+                                    <label for="Biceps">Biceps Circumference</label>
+                                </div>
+
+                                <div class="input-field col s12 m6">
+                                    <textarea id="Forearm" class="materialize-textarea" v-model="forearm"></textarea>
+                                    <label for="Forearm">Forearm Circumference</label>
+                                </div>
+
+                                <div class="col s12 m6">
+                                    <button class="btn waves-effect waves-light" type="submit" name="action"
+                                        v-on:click="calculate(3)">Calculate
+                                        <i class="material-icons right">send</i>
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <!-- advanced  -->
+
             </div>
 
             <!-- right -->
@@ -106,9 +277,12 @@
                                 <!-- <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a> -->
                             </div>
                             <div class="card-content">
-                                <span class="card-title">Body Fat</span>
+                                <span class="card-title" style="font-size: 2.5rem;">{{ picText }}</span>
                                 <p>
-                                    Your body fat is calculated to be {{ bodyfat }}
+                                    Your body fat is estimated to be 
+                                </p>
+                                <p style="font-size: 4rem;">
+                                    {{ bodyfatString }}
                                 </p>
                             </div>
                         </div>
@@ -119,7 +293,14 @@
     </div>
 
     <script src="calculator.js"></script>
+    <script>
+
+
+        var elem = document.querySelector('.collapsible.expandable');
+        var instance = M.Collapsible.init(elem, {
+            accordion: false
+        }); 
+    </script>
 </body>
 
 </html>
-
