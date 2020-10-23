@@ -1,8 +1,0 @@
-,vairable,coefficients,
-1,(Intercept),-26.95755925,-26.95755925
-2,age,-1.085786956, + -1.08578695550816 * this.age
-3,weight,2.109225863, + 2.10922586342717 * this.weight
-4,age * this.height,0.006815532, + 0.00681553194284284 * this.age * this.height
-5,weight * this.height,-0.009007873, + -0.00900787295197659 * this.weight * this.height
-,,,
-,-26.9575592519138 + -1.08578695550816 * this.age + 2.10922586342717 * this.weight + 0.00681553194284284 * this.age * this.height + -0.00900787295197659 * this.weight * this.height,,

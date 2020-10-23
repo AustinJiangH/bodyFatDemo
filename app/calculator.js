@@ -31,7 +31,7 @@ var app = new Vue({
         bodyfatString: "0%",
 
         picText: "Fill in the Form and Calculate!",
-        picPath: "img/m2.jpg",
+        picPath: "app/img/f1.jpg",
     },
     methods: {
 
@@ -150,7 +150,7 @@ var app = new Vue({
                 }
             }
 
-            this.picPath = "img/" + this.gender + String(picNum) + ".jpg";
+            this.picPath = "app/img/" + this.gender + String(picNum) + ".jpg";
             this.bodyfatString = String(this.bodyfat.toFixed(2)) + "%"
             // console.log(this.picPath)
         },
