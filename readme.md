@@ -25,13 +25,13 @@ Users can select a familiar metric system and gender to customize the applicatio
 ## Design 
 The application is composed by an input panel on the left and a result panel on the right (top and bottom on mobile devices). The input panel has foldable tabs corresponding to different information levels and corresponding models. The result panel will show an illustration of the estimated figure, a category and most importantly the body fat percentage.
 
-<img src="app/img/desktop.png" style="height: 25rem"></img>
-<img src="app/img/mobile.png" style="height: 25rem"></img>
+<img src="app/img/desktop.png" style="height: 10rem"></img>
+<img src="app/img/mobile.png" style="height: 10rem"></img>
 
 
 
 ## Technical Details 
 This application is designed with HTML5, CSS3 and JavaScript, using two frameworks Materialize.css and Vue.js. Models are fitted in R and migrated to JavaScript.
 This application runs only on front end without server side and is hosted on GitHub.
-<img src="app/img/materialize.svg" style="height: 15rem"></img>
-<img src="app/img/vuejs.svg" style="height: 15rem"></img>
+<img src="app/img/materialize.svg" style="height: 5rem"></img>
+<img src="app/img/vuejs.svg" style="height: 5rem"></img>
