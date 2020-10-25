@@ -1,3 +1,7 @@
+#KW created this code script
+#HJ reviewed and revised this code script
+#KW is ultimately responsible for this code script
+
 rm(list = ls())
 dev.off()
 data = read.csv("BodyFat.csv")
