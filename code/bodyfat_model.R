@@ -1,5 +1,5 @@
 #YCL created this code script
-#HJ reviewed and revised this code script
+#HJ reviewed, revised and documented this code script
 #YCL is ultimately responsible for this code script
 
 library(leaps)
@@ -7,19 +7,24 @@ library(MASS)
 library(caret)
 data_raw=read.csv("data_cleaned.csv")[,-c(1,2)] ##data is from datacleaning
 
+### change variable names to lower case 
 names(data_raw)=tolower(names(data_raw))
+### change lb/inch values to kg/cm
 data_raw$weight=data_raw$weight*0.45359237
 data_raw$height=data_raw$height*2.54
 
+### split training and testing dataset 
 smp_size <- floor(0.75 * nrow(data_raw))
 set.seed(333)
 train_ind <- sample(seq_len(nrow(data_raw)), size = smp_size)
 data_train <- data_raw[train_ind, ]
 data_test <- data_raw[-train_ind, ]
 
-## model 1
+# model 1
 
+### select the three variables 
 name_model1=(names(data_raw)[-1])[c(2,3,4)]
+### create training formula 
 name_set=t(combn(name_model1,2))
 name_set_paste=paste(paste(name_set[,1],name_set[,2],sep=":"),collapse = "+")
 name_set_paste2=paste(name_model1,collapse = "+")
@@ -27,7 +32,6 @@ fmla=as.formula(paste("bodyfat~",name_set_paste2,"+",name_set_paste,sep=""))
 
 ### train test
 lm_election=lm(fmla,data=data_train)
-
 
 X <- model.matrix(lm_election)[,-1]
 election.leaps <- leaps(X, data_train$bodyfat, nbest=1, method='adjr2')
@@ -41,6 +45,7 @@ plot(election.leaps$size, election.leaps$adjr2, pch=23, bg='orange', cex=2,
 
 fmla_model1=as.formula(paste("bodyfat~",paste(a,collapse = "+"),sep=""))
 
+### test the trained model 
 model1=lm(fmla_model1,data_train)
 sqrt(sum(model1$residuals^2)/183) ## RMSE on training set
 pre1=predict(model1,data_test[-1])
@@ -49,7 +54,6 @@ sqrt(sum(res1^2)/61) ### RMSE on test data
 
 
 ### full model1
-
 lm_election=lm(fmla,data=data_raw)
 
 
@@ -71,8 +75,8 @@ model1_coefficients=data.frame(vairable=c(names(model1$coefficients)),coefficien
 row.names(model1_coefficients)=c()
 write.csv(model1_coefficients,"../image/model1.csv")
 
- ## model2
-
+# model2
+### select more variables 
 name_model2=(names(data_raw)[-1])[c(2,3,4,7,9,15)]
 name_set=t(combn(name_model2,2))
 name_set_paste=paste(paste(name_set[,1],name_set[,2],sep=":"),collapse = "+")
@@ -125,6 +129,7 @@ row.names(model2_coefficients)=c()
 write.csv(model2_coefficients,"../image/model2.csv")
 
 ## model3
+### select all variables 
 name_model3=(names(data_raw)[-1])[2:15]
 name_set=t(combn(name_model3,2))
 name_set_paste=paste(paste(name_set[,1],name_set[,2],sep=":"),collapse = "+")
