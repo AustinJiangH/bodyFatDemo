@@ -1,3 +1,7 @@
+#YCL created this code script
+#HJ reviewed and revised this code script
+#YCL is ultimately responsible for this code script
+
 library(leaps)
 library(MASS)
 library(caret)
@@ -167,3 +171,4 @@ plot(model3$residuals,main="Model3")
 plot(model1$fitted.values,model1$residuals,main="Residuals vs Fitted Model1")
 plot(model2$fitted.values,model2$residuals,main="Residuals vs Fitted Model2")
 plot(model3$fitted.values,model3$residuals,main="Residuals vs Fitted Model3")
+
