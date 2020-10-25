@@ -5,6 +5,7 @@ This repo contains files of a body fat calculator.
 - <code>code</code>: files of the model development. <code>data</code> has to be in directory <code>code</code> to run the R code.
 - <code>data</code>: data used to train the model.
 - <code>images</code>: important plots of the model.
+- <code>deliverables</code>: Report and presentation.
 
 # Model
 Model development details can be found in the report.
